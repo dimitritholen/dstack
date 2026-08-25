@@ -14,7 +14,7 @@ Prerequisites:
 Install:
 
 ```bash
-claude plugin marketplace add dimitriofficial/dstack
+claude plugin marketplace add dimitritholen/dstack
 claude plugin install dstack@dstack
 ```
 
