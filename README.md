@@ -65,4 +65,5 @@ Fire on their own when the situation matches; typing the name also works.
 
 ## Commands
 
-- **/promptimize**: turn a rough prompt into an optimized one via interview; outputs only the final prompt.
+- **/dstack:help**: the skill map — every skill and where it sits in the development cycle.
+- **/dstack:promptimize**: turn a rough prompt into an optimized one via interview; outputs only the final prompt.

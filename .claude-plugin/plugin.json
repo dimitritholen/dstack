@@ -1,6 +1,6 @@
 {
   "name": "dstack",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Dimitri Tholen's personal agent skills: the adopted core of mattpocock/skills, the portable gems from pstack, and his own tools (duo-plan, promptimize, retro).",
   "author": {
     "name": "Dimitri Tholen"
