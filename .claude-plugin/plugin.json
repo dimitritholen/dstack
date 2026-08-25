@@ -12,11 +12,10 @@
     "engineering",
     "grilling",
     "tdd",
-    "code-review",
+    "review-vs-spec",
     "writing"
   ],
   "skills": [
-    "./skills/code-review",
     "./skills/codebase-design",
     "./skills/diagnosing-bugs",
     "./skills/domain-modeling",
@@ -29,6 +28,7 @@
     "./skills/research",
     "./skills/resolving-merge-conflicts",
     "./skills/retro",
+    "./skills/review-vs-spec",
     "./skills/setup-matt-pocock-skills",
     "./skills/tdd",
     "./skills/technical-writing",

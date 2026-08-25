@@ -1,6 +1,6 @@
 ---
 name: unslop
-description: "Cut AI tells from prose and add human voice. Use when writing or editing docs, READMEs, articles, PR descriptions, or commit messages, or when the user says unslop."
+description: "Cut AI tells from prose and add human voice. Use when the user says unslop, when prose reads AI-generated, or as an editing pass after drafting docs, articles, or PR descriptions."
 ---
 
 # Unslop

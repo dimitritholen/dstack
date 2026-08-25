@@ -6,7 +6,7 @@ Every skill in this repo was copied on 2026-08-25 from one of three sources and 
 
 Copied from a local clone of https://github.com/mattpocock/skills at commit `6654f6b60cd9d5be8b54c6fafe44346dabeb3b76`:
 
-code-review, codebase-design, diagnosing-bugs, domain-modeling, grill-with-docs, grilling, handoff, implement, prototype, research, resolving-merge-conflicts, setup-matt-pocock-skills, tdd, to-spec, to-tickets, wayfinder, writing-for-agents.
+code-review (renamed here to review-vs-spec), codebase-design, diagnosing-bugs, domain-modeling, grill-with-docs, grilling, handoff, implement, prototype, research, resolving-merge-conflicts, setup-matt-pocock-skills, tdd, to-spec, to-tickets, wayfinder, writing-for-agents.
 
 Copied verbatim. The excluded `triage` skill is a clean seam: `setup-matt-pocock-skills` detects its absence and skips its section.
 

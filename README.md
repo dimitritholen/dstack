@@ -27,7 +27,7 @@ A typical first feature runs through the pipeline in order:
 1. `/grill-with-docs` to stress-test the idea; leaves ADRs and a glossary behind.
 2. `/to-spec` to turn that conversation into a spec in the tracker.
 3. `/to-tickets` to break the spec into tracer-bullet tickets in dependency order.
-4. `/implement` per ticket; it runs tdd and code-review internally.
+4. `/implement` per ticket; it runs tdd and review-vs-spec internally.
 5. `/retro` at the end of a session to mine the transcript for environment improvements.
 
 For work too big for one session, `/wayfinder` plans it as a shared map of decision tickets, and `/handoff` compacts the conversation for the next agent. Everything under Model-invoked below fires on its own when the situation matches; you never need to invoke those by hand.
@@ -39,7 +39,7 @@ Reachable only by typing the name.
 - **[grill-with-docs](./skills/grill-with-docs/SKILL.md)**: relentless interview that sharpens a plan and leaves ADRs and a glossary behind. The usual entry point for non-trivial work.
 - **[to-spec](./skills/to-spec/SKILL.md)**: turn the conversation into a spec, published to the issue tracker.
 - **[to-tickets](./skills/to-tickets/SKILL.md)**: break a spec into tracer-bullet tickets in dependency order.
-- **[implement](./skills/implement/SKILL.md)**: implement a spec or ticket (runs tdd and code-review internally).
+- **[implement](./skills/implement/SKILL.md)**: implement a spec or ticket (runs tdd and review-vs-spec internally).
 - **[wayfinder](./skills/wayfinder/SKILL.md)**: plan work too big for one session as a shared map of decision tickets.
 - **[handoff](./skills/handoff/SKILL.md)**: compact the conversation into a handoff document for the next agent.
 - **[retro](./skills/retro/SKILL.md)**: session retrospective; parallel reviewers mine the transcript for environment improvements, each accepted finding routed to a concrete edit.
@@ -54,7 +54,7 @@ Fire on their own when the situation matches; typing the name also works.
 - **[codebase-design](./skills/codebase-design/SKILL.md)**: shared vocabulary for deep modules, seams, and interfaces.
 - **[diagnosing-bugs](./skills/diagnosing-bugs/SKILL.md)**: diagnosis loop for hard bugs and regressions.
 - **[tdd](./skills/tdd/SKILL.md)**: red-green-refactor with integration-first tests.
-- **[code-review](./skills/code-review/SKILL.md)**: review changes since a fixed point on standards and spec axes.
+- **[review-vs-spec](./skills/review-vs-spec/SKILL.md)**: review changes since a fixed point on standards and spec axes (renamed from code-review to avoid colliding with the built-in skill).
 - **[resolving-merge-conflicts](./skills/resolving-merge-conflicts/SKILL.md)**: resolve an in-progress merge or rebase.
 - **[prototype](./skills/prototype/SKILL.md)**: throwaway prototype to answer a design question.
 - **[research](./skills/research/SKILL.md)**: investigate a question against primary sources, captured as Markdown.

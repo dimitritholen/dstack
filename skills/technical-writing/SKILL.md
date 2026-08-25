@@ -1,6 +1,6 @@
 ---
 name: technical-writing
-description: "Layered standard for human-facing prose: Diátaxis structure, Google developer style, STE instruction rules, Global English syntax. Use when writing or reviewing docs, RFCs, READMEs, PR descriptions, or commit messages."
+description: "Layered standard for human-facing prose: Diátaxis structure, Google developer style, STE instruction rules, Global English syntax. Use when writing or reviewing docs, RFCs, READMEs, or commit messages, or deciding how to structure a document."
 ---
 
 # Technical writing

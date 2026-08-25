@@ -1,6 +1,6 @@
 ---
 name: duo-plan
-description: "Run a competitive-collaborative planning session where Claude AND OpenAI's Codex CLI each independently create a development plan in parallel, visible live in an HTML dashboard (who is working on what, step-by-step progress), then cross-review each other's plan and merge the best of both into one final plan. Real contradictions between the two plans surface as an A/B diff panel in the browser where the user decides; the merged plan gets a Codex validation pass and an approve button. Use for non-trivial development tasks where the user wants two independent AI perspectives BEFORE code is written. Triggers: '/duo-plan', 'laat claude en codex allebei een plan maken', 'duo plan', 'parallel plannen', 'plan battle', 'maak beide een plan en combineer het beste', 'twee plannen naast elkaar'. NOT for a quick second opinion on an existing plan — that's /codex-review; NOT for reviewing code diffs or PRs — that's /code-review, /review-pr or /review-deep."
+description: "Claude and OpenAI's Codex CLI each independently plan the same development task in parallel, cross-review each other's plan, and merge the best of both into one final plan; real contradictions go to the user to decide. Use for non-trivial development tasks where the user wants two independent AI perspectives before code is written. Triggers: '/duo-plan', 'duo plan', 'plan battle', 'laat claude en codex allebei een plan maken', 'parallel plannen', 'twee plannen naast elkaar'. Not for reviewing code diffs or PRs: that's review-vs-spec."
 ---
 
 # duo-plan
@@ -21,8 +21,8 @@ bewaakt de fases, schrijft `control.json`, en doet de synthese.
 architectuurkeuzes, refactors, migraties, features met meerdere valide aanpakken.
 
 **Niet**:
-- Snelle second opinion op een bestaand plan → `/codex-review`
-- Review van code/diff/PR → `/code-review`, `/review-pr`, `/review-deep`
+- Snelle second opinion op een bestaand plan → vraag Codex rechtstreeks, geen volledige duo-plan-run
+- Review van code/diff/PR → `/review-vs-spec`
 - Triviale taken — twee modellen laten plannen voor een one-liner is verspilling; zeg dat eerlijk.
 
 ## Vereisten
