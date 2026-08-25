@@ -1,0 +1,41 @@
+{
+  "name": "dstack",
+  "version": "0.1.0",
+  "description": "Dimitri Tholen's personal agent skills: the adopted core of mattpocock/skills, the portable gems from pstack, and his own tools (duo-plan, promptimize, retro).",
+  "author": {
+    "name": "Dimitri Tholen"
+  },
+  "repository": "https://github.com/dimitriofficial/dstack",
+  "license": "MIT",
+  "keywords": [
+    "skills",
+    "engineering",
+    "grilling",
+    "tdd",
+    "code-review",
+    "writing"
+  ],
+  "skills": [
+    "./skills/code-review",
+    "./skills/codebase-design",
+    "./skills/diagnosing-bugs",
+    "./skills/domain-modeling",
+    "./skills/duo-plan",
+    "./skills/grill-with-docs",
+    "./skills/grilling",
+    "./skills/handoff",
+    "./skills/implement",
+    "./skills/prototype",
+    "./skills/research",
+    "./skills/resolving-merge-conflicts",
+    "./skills/retro",
+    "./skills/setup-matt-pocock-skills",
+    "./skills/tdd",
+    "./skills/technical-writing",
+    "./skills/to-spec",
+    "./skills/to-tickets",
+    "./skills/unslop",
+    "./skills/wayfinder",
+    "./skills/writing-for-agents"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "dstack",
+  "owner": {
+    "name": "Dimitri Tholen"
+  },
+  "description": "Dimitri Tholen's personal skill set as an installable Claude Code plugin.",
+  "plugins": [
+    {
+      "name": "dstack",
+      "source": "./",
+      "description": "Curated personal skills: the adopted core of mattpocock/skills, the portable pstack gems, and Dimitri's own tools.",
+      "category": "engineering",
+      "keywords": [
+        "skills",
+        "engineering"
+      ]
+    }
+  ]
+}
