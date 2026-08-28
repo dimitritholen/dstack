@@ -24,7 +24,7 @@ Then, once per repo you use the pipeline in, run `/setup-matt-pocock-skills`. It
 
 A typical first feature runs through the pipeline in order:
 
-1. `/grill-with-docs` to stress-test the idea; leaves ADRs and a glossary behind.
+1. `/grill-with-docs` to stress-test the idea; sketches the screen-layout options so you pick by looking; leaves ADRs and a glossary behind.
 2. `/to-spec` to turn that conversation into a spec in the tracker.
 3. `/to-tickets` to break the spec into tracer-bullet tickets in dependency order.
 4. `/implement` per ticket; it runs tdd and review-vs-spec internally.

@@ -1,0 +1,235 @@
+<!--
+  discovery — sketch kit.
+
+  Copy-paste parts for the sketched variants that go inside assets/variants-template.html.
+  Two families:
+    · WIREFRAME parts — apps, websites, desktop software
+    · STORYBOARD parts — games (what happens in a moment of play)
+
+  RULES (the whole point of sketching)
+  - Rough on purpose. Never tidy these up.
+  - No real copy. Body text is squiggle lines. Only structural words get real letters,
+    and only where the sketch is meaningless without them.
+  - Greyscale plus ONE accent, used sparingly to mark the one thing that matters in
+    this variant (the selected item, the thing that moves, the player).
+  - Colours come only from: var(--ink) strokes, var(--paper) fills, var(--accent),
+    var(--border). Those are defined in variants-template.html. No hex, ever.
+  - Every sketch sits in a viewBox 320 wide. Height varies; keep it under ~230 so three
+    cards fit on one screen.
+
+  THE ROUGH LOOK
+  Draw clean geometry, then bend it with the feTurbulence + feDisplacementMap filters
+  (`rough-a`, `rough-b`, `rough-c`) that variants-template.html defines once per page.
+  Alternate the three seeds between adjacent groups so repeated shapes don't wobble in
+  lockstep. Text must stay OUTSIDE a filtered group or it turns to mush.
+
+    <g filter="url(#rough-a)" fill="none" stroke="var(--ink)" stroke-width="1.6"
+       stroke-linecap="round"> ... shapes ... </g>
+
+  Stroke widths: 1.6 for frames and structure, 1.5 for content boxes, 1.4 for minor
+  furniture, 4 for accent bars. Squiggle body text is 1.5 at opacity .55.
+
+  THE ONE TRAP
+  Those filters declare filterUnits="userSpaceOnUse" and you must not "simplify" that
+  away. With the SVG default (objectBoundingBox) a group containing only a horizontal
+  or vertical line has a zero-height bounding box, its filter region collapses, and the
+  group renders as nothing at all — no error, no warning, just a missing shape. It
+  eats single accent bars specifically, which is the mark you least want to lose.
+  If a group ever disappears, this is why: give it a second shape at a different y, or
+  check the filter still says userSpaceOnUse. Any sketch wider than 320 or taller than
+  260 units needs the filter region widened to match.
+-->
+
+
+<!-- ============================================================ WIREFRAME PARTS -->
+
+<!-- BROWSER FRAME — the outer shell for any web/desktop screen. Everything else nests
+     inside x 10..310, y 34..202. -->
+<g filter="url(#rough-a)" fill="none" stroke="var(--ink)" stroke-width="1.6" stroke-linecap="round">
+  <rect x="10" y="10" width="300" height="192" rx="9"/>
+  <line x1="10" y1="34" x2="310" y2="34"/>
+</g>
+<g filter="url(#rough-b)" stroke="var(--ink)" stroke-width="1.4" fill="none" opacity=".62">
+  <circle cx="24" cy="22" r="3.2"/><circle cx="35" cy="22" r="3.2"/><circle cx="46" cy="22" r="3.2"/>
+</g>
+
+<!-- PHONE FRAME — for a mobile variant. Content area is x 118..202, y 42..196.
+     Centre it in the 320 viewBox so a phone sketch and a browser sketch sit at the
+     same optical weight when they appear side by side. -->
+<g filter="url(#rough-a)" fill="none" stroke="var(--ink)" stroke-width="1.6" stroke-linecap="round">
+  <rect x="110" y="12" width="100" height="192" rx="14"/>
+  <path d="M146 12 h28 a4 4 0 0 1 4 4 v3 a4 4 0 0 1 -4 4 h-28 a4 4 0 0 1 -4 -4 v-3 a4 4 0 0 1 4 -4"/>
+  <line x1="110" y1="36" x2="210" y2="36"/>
+  <line x1="110" y1="182" x2="210" y2="182"/>
+</g>
+
+<!-- SIDEBAR + NAV ITEMS — the selected item carries the accent; the rest are plain. -->
+<g filter="url(#rough-b)" stroke="var(--ink)" stroke-width="1.4" fill="none" opacity=".62">
+  <line x1="74" y1="34" x2="74" y2="202"/>
+  <rect x="20" y="46" width="44" height="9" rx="3"/>
+  <rect x="20" y="63" width="44" height="9" rx="3"/>
+  <rect x="20" y="80" width="44" height="9" rx="3"/>
+  <rect x="20" y="97" width="44" height="9" rx="3"/>
+</g>
+<g filter="url(#rough-a)" stroke="var(--accent)" stroke-width="1.7" fill="none">
+  <rect x="20" y="46" width="44" height="9" rx="3"/>
+</g>
+
+<!-- LIST ROWS — the workhorse. Row pitch 32, row height 26, starting y 46.
+     Squiggles are the text: two lines per row, long then short. -->
+<g filter="url(#rough-c)" stroke="var(--ink)" stroke-width="1.5" stroke-linecap="round" fill="none">
+  <rect x="86" y="46" width="212" height="26" rx="4"/>
+  <rect x="86" y="78" width="212" height="26" rx="4"/>
+  <rect x="86" y="110" width="212" height="26" rx="4"/>
+</g>
+<g filter="url(#rough-b)" stroke="var(--ink)" stroke-width="1.5" stroke-linecap="round" opacity=".55">
+  <path d="M96 56 h9 M96 62 h9"/><path d="M114 56 h120 M114 63 h72"/>
+  <path d="M96 88 h9 M96 94 h9"/><path d="M114 88 h96 M114 95 h58"/>
+  <path d="M96 120 h9 M96 126 h9"/><path d="M114 120 h132 M114 127 h64"/>
+</g>
+
+<!-- COLUMNS OF CARDS — kanban/board shape. Column x at 22 / 118 / 214, width 86.
+     Header at y 46 (h 10), cards from y 64 at pitch 40, card height 34. -->
+<g filter="url(#rough-c)" stroke="var(--ink)" stroke-width="1.5" stroke-linecap="round" fill="none">
+  <rect x="22" y="46" width="86" height="10" rx="3"/>
+  <rect x="118" y="46" width="86" height="10" rx="3"/>
+  <rect x="214" y="46" width="86" height="10" rx="3"/>
+  <rect x="22" y="64" width="86" height="34" rx="4"/>
+  <rect x="22" y="104" width="86" height="34" rx="4"/>
+  <rect x="118" y="64" width="86" height="34" rx="4"/>
+</g>
+
+<!-- CALENDAR / MONTH GRID — 7 columns of 39.4 starting x 22, 4 rows of 36 from y 58.
+     Accent bars are events; keep them irregular so it reads as real scheduling. -->
+<g filter="url(#rough-b)" fill="none" stroke="var(--ink)" stroke-width="1.4" stroke-linecap="round" opacity=".8">
+  <line x1="22" y1="58" x2="298" y2="58"/><line x1="22" y1="94" x2="298" y2="94"/>
+  <line x1="22" y1="130" x2="298" y2="130"/><line x1="22" y1="166" x2="298" y2="166"/>
+  <line x1="22" y1="194" x2="298" y2="194"/>
+  <line x1="22" y1="58" x2="22" y2="194"/><line x1="61" y1="58" x2="61" y2="194"/>
+  <line x1="100" y1="58" x2="100" y2="194"/><line x1="140" y1="58" x2="140" y2="194"/>
+  <line x1="180" y1="58" x2="180" y2="194"/><line x1="219" y1="58" x2="219" y2="194"/>
+  <line x1="259" y1="58" x2="259" y2="194"/><line x1="298" y1="58" x2="298" y2="194"/>
+</g>
+<g filter="url(#rough-c)" stroke="var(--accent)" stroke-width="4" stroke-linecap="round">
+  <path d="M27 68 h28"/><path d="M105 68 h30"/><path d="M66 104 h29"/><path d="M224 104 h30"/>
+</g>
+
+<!-- FORM — label squiggle above each field. Field pitch 34, field height 18. -->
+<g filter="url(#rough-a)" stroke="var(--ink)" stroke-width="1.5" stroke-linecap="round" fill="none">
+  <rect x="90" y="60" width="180" height="18" rx="4"/>
+  <rect x="90" y="94" width="180" height="18" rx="4"/>
+  <rect x="90" y="128" width="180" height="18" rx="4"/>
+</g>
+<g filter="url(#rough-b)" stroke="var(--ink)" stroke-width="1.5" stroke-linecap="round" opacity=".55">
+  <path d="M90 52 h40"/><path d="M90 86 h52"/><path d="M90 120 h34"/>
+</g>
+<g filter="url(#rough-c)" stroke="var(--accent)" stroke-width="1.7" fill="none">
+  <rect x="90" y="160" width="62" height="20" rx="5"/>
+</g>
+
+<!-- TABLE — header rule heavier than body rules. Column ticks show alignment only. -->
+<g filter="url(#rough-a)" fill="none" stroke="var(--ink)" stroke-width="1.5" stroke-linecap="round">
+  <line x1="22" y1="60" x2="298" y2="60"/>
+</g>
+<g filter="url(#rough-b)" fill="none" stroke="var(--ink)" stroke-width="1.3" stroke-linecap="round" opacity=".6">
+  <line x1="22" y1="84" x2="298" y2="84"/><line x1="22" y1="108" x2="298" y2="108"/>
+  <line x1="22" y1="132" x2="298" y2="132"/><line x1="22" y1="156" x2="298" y2="156"/>
+</g>
+<g filter="url(#rough-c)" stroke="var(--ink)" stroke-width="1.5" stroke-linecap="round" opacity=".55">
+  <path d="M28 52 h30 M96 52 h44 M180 52 h34 M250 52 h30"/>
+  <path d="M28 74 h34 M96 74 h56 M180 74 h28 M250 74 h36"/>
+  <path d="M28 98 h26 M96 98 h48 M180 98 h38 M250 98 h24"/>
+</g>
+
+<!-- EMPTY STATE — what a brand-new user sees. The most-skipped screen in every
+     interview, so it earns its own sketch when the first-run experience matters. -->
+<g filter="url(#rough-b)" fill="none" stroke="var(--ink)" stroke-width="1.5" stroke-linecap="round" opacity=".6">
+  <rect x="132" y="80" width="56" height="42" rx="5"/>
+  <path d="M140 112 l12 -14 10 11 8 -8 10 11"/>
+  <circle cx="152" cy="93" r="4"/>
+</g>
+<g filter="url(#rough-c)" stroke="var(--ink)" stroke-width="1.5" stroke-linecap="round" opacity=".5">
+  <path d="M118 138 h84 M136 148 h48"/>
+</g>
+<g filter="url(#rough-a)" stroke="var(--accent)" stroke-width="1.7" fill="none">
+  <rect x="128" y="162" width="64" height="20" rx="5"/>
+</g>
+
+
+<!-- =========================================================== STORYBOARD PARTS -->
+<!--
+  A storyboard variant is a STRIP of 3 panels reading left to right: what the player
+  sees, then what they do, then what happens. Three panels of 96 wide at x 12 / 114 /
+  216, y 24..150, with a caption line under each. That is one variant; the variants
+  differ in how the moment plays out, not in how it is drawn.
+-->
+
+<!-- PANEL FRAMES + captions. Captions are the ONE place real words are allowed in a
+     storyboard, because a panel without its beat label is unreadable. Put the <text>
+     outside the filtered group. -->
+<g filter="url(#rough-a)" fill="none" stroke="var(--ink)" stroke-width="1.6" stroke-linejoin="round">
+  <rect x="12" y="24" width="96" height="104" rx="4"/>
+  <rect x="114" y="24" width="96" height="104" rx="4"/>
+  <rect x="216" y="24" width="96" height="104" rx="4"/>
+</g>
+<text x="60" y="146" text-anchor="middle" class="beat">{{sees the door}}</text>
+<text x="162" y="146" text-anchor="middle" class="beat">{{spends a light}}</text>
+<text x="264" y="146" text-anchor="middle" class="beat">{{room opens}}</text>
+
+<!-- ENVIRONMENT — horizon plus a couple of forms. Keeps a panel from reading as empty
+     without drawing anything anyone could argue about. Forms sit at x 58..98, leaving
+     x 12..52 clear for the player and their motion lines; if you move the player,
+     move these too rather than letting them overlap. -->
+<g filter="url(#rough-b)" fill="none" stroke="var(--ink)" stroke-width="1.4" stroke-linecap="round" opacity=".55">
+  <path d="M12 96 h96"/>
+  <path d="M58 96 v-16 h14 v16"/>
+  <path d="M78 96 v-24 l10 -8 10 8 v24"/>
+</g>
+
+<!-- PLAYER — a blob with a head, not a stick figure: reads as "a character" without
+     implying an art style. Accent marks it as the thing the player controls. -->
+<g filter="url(#rough-c)" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round">
+  <circle cx="46" cy="80" r="6"/>
+  <path d="M46 86 q-7 8 -6 18 h12 q1 -10 -6 -18"/>
+</g>
+
+<!-- MOTION / INPUT — speed lines behind a moving thing, and a button-press burst.
+     These carry the verb of the panel, so they always use the accent. -->
+<g filter="url(#rough-a)" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" opacity=".8">
+  <path d="M30 76 h-10 M28 82 h-13 M30 88 h-9"/>
+</g>
+<g filter="url(#rough-b)" fill="none" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round">
+  <path d="M162 60 v-9 M172 64 l7 -6 M152 64 l-7 -6 M162 78 v6"/>
+</g>
+
+<!-- CAMERA MOVE — a bracket pair plus an arrow, for "the view pushes in / pans right".
+     Camera language is worth sketching because it is otherwise argued about in words. -->
+<g filter="url(#rough-c)" fill="none" stroke="var(--ink)" stroke-width="1.5" stroke-linecap="round" opacity=".7">
+  <path d="M228 40 h10 M228 40 v10"/>
+  <path d="M300 40 h-10 M300 40 v10"/>
+  <path d="M228 116 h10 M228 116 v-10"/>
+  <path d="M300 116 h-10 M300 116 v-10"/>
+</g>
+<g filter="url(#rough-a)" fill="none" stroke="var(--accent)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M244 78 h34"/>
+  <path d="M278 78 l-7 -4"/><path d="M278 78 l-7 4"/>
+</g>
+
+<!-- HUD — a resource bar and a counter, for panels where the cost of the action is
+     the point. Bar: track then fill; the fill length is the number in the caption. -->
+<g filter="url(#rough-b)" fill="none" stroke="var(--ink)" stroke-width="1.4" stroke-linecap="round" opacity=".6">
+  <rect x="120" y="30" width="44" height="7" rx="3"/>
+  <circle cx="200" cy="34" r="5"/>
+</g>
+<g filter="url(#rough-c)" stroke="var(--accent)" stroke-width="4" stroke-linecap="round">
+  <path d="M124 33.5 h26"/>
+</g>
+
+<!--
+  CSS for the storyboard caption class — add to the page's <style> when you use
+  storyboard panels (variants-template.html does not ship it, because wireframe
+  variants do not need it):
+
+    .sketch text.beat { font:600 10px ui-sans-serif,system-ui,sans-serif;
+                        fill:var(--ink); opacity:.75; }
+-->
